@@ -10,13 +10,13 @@ Command Usage
 
 Example:
 ```
-    $ yo boom:value name
+    $ yo nodes-angular:value name
     > Enter the value for the 'value' name : [value]
 ```
 
 This will add the value 'name' with value provide on the terminal inside:
 
 ```
-	app/js/main.js
+	app/app.js
 ```
 

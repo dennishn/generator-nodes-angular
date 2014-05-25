@@ -12,11 +12,11 @@ Command Usage
 ***Example***
 
 ```
-   $ yo boom:filter filter_name
+   $ yo nodes-angular:filter filter_name
 ```
 
 This will create:
 
 ```
-	app/js/filters/filter_name.js
+	common/filters/filter_name.js
 ```

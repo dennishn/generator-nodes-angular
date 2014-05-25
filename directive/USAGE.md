@@ -12,13 +12,13 @@ Command Usage
 ***Example***
 
 ```
-   $ yo boom:directive directive_name
+   $ yo nodes-angular:directive directive_name
 ```
 
 This will create
 
 ```
-    app/js/controllers/directive_name.js
+    common/directives/directive_name.js
 ```
 
 

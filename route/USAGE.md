@@ -11,25 +11,25 @@ Command Usage
 ***Example***
 
 ```
-    $ yo boom:route route_name
+    $ yo nodes-angular:route route_name
+    > Which module does this controller belong to? : [module]    
 ```
 
 This will add new route in :
 
 ```
-    app/js/main.js
+    app/app.js
+```
+And a controller
+
+```
+    app/[module]/[module].js
 ```
 
 Also a new template will be created
 
 ```
-    app/templates/route_name.html
-```
-
-Also a new css file will be created
-
-```    
-    app/css/route_name.css
+    app/[module]/[module].tpl.html
 ```
 
    

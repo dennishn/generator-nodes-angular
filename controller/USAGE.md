@@ -11,12 +11,13 @@ Command Usage
 ***Example***
 
 ```
-   $ yo boom:controller ctrl_name
+    $ yo nodes-angular:controller ctrl_name
+    > Which module does this controller belong to? : [module]
 ```
 
 This will create
 
 ```
-    app/js/controllers/ctrl_name.js
+    app/[module]/ctrl_name.js
 ```
 

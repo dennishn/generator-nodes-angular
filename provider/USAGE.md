@@ -11,11 +11,11 @@ Command Usage
 ***Example***
 
 ```
-    $ yo boom:provider provider_name
+    $ yo nodes-angular:provider provider_name
 ```
 
 This will create
 
 ```
-	app/js/providers/provider_name.js
+	common/providers/provider_name.js
 ```

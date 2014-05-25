@@ -11,7 +11,7 @@ Command Usage
 ***Example***
 
 ```
-    $ yo boom:font arial
+    $ yo nodes-angular:font arial
 ```
 
 This will add:
@@ -29,13 +29,13 @@ This will add:
 		font-style: 'normal'; 
 	}
 ```
-in `app/css/fonts.css`
+in `scss/fonts._css`
 
 
 Also a empty directory will be created :
 
 ```
-    app/fonts/arial/
+    fonts/arial/
 ```
 
 

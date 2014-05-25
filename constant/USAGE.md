@@ -11,8 +11,8 @@ Command Usage
 ***Example***
 
 ```
-    $ yo boom:constant name
+    $ yo nodes-angular:constant name
     > Enter the value for the constant name : [value]
 ```
 
-This will add the constant 'name' with value provide on the terminal inside `app/js/main.js`
+This will add the constant 'name' with value provide on the terminal inside `app/app.js`

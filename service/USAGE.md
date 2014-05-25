@@ -12,11 +12,11 @@ Command Usage
 ***Example***
 
 ```
-    $ yo boom:service service_name
+    $ yo nodes-angular:service service_name
 ```
 
 This will create
 
 ```
-    app/js/services/service_name.js
+    common/services/service_name.js
 ```

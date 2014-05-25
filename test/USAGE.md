@@ -18,7 +18,7 @@ Command Usage
 ***Example***
 
 ```
-   $ yo boom:test test_name
+   $ yo nodes-angular:test test_name
 ```
 
 This will create
@@ -31,7 +31,7 @@ This will create
 To create an API test use 
 
 ```
-    yo boom:test test_name -api
+    yo nodes-angular:test test_name -api
 ```
 
 This will create 

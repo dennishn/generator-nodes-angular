@@ -11,18 +11,18 @@ Command Usage
 ***Example***
 
 ```
-   $ yo boom:factory factory_name
+   $ yo nodes-angular:factory factory_name
 ```
 
 This will create:
 
 ```
-	app/js/factories/factory_name.js
+	common/factories/factory_name.js
 ```
 
 To  add the skeleton for the APIs use
 
 ```
-   $ yo boom:factory factory_name -api
+   $ yo nodes-angular:factory factory_name -api
 ```
 
