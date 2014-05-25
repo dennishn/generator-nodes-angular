@@ -3,180 +3,106 @@ Nodes Angular.js Generator
 
 ---------------
 
-This project is a Yeoman Generator, using which we can speed up our WebApp development. The command name is **$ yo boom**. Boom because its indeed a BOOM.
-
-You can also check the [NPM Repository](https://npmjs.org/package/generator-boom) 
-
-
+> Yeoman generator for AngularJS using a modular approach to filestructure and naming. Opinionated about the front-end workflow at Nodes.
 
 ----------
 
-What makes it cool
+Whats included:
 ----------
 
- 1. **Ultra Fast** - Uses Gulp instead of Grunt
- 2. **Live Reload** pre-configured
- 3. **BrowserSync** pre-configured
- 4. **Development** and **Production** code are separated
- 5. **AngularUI** included (optional)
- 6. **JSHint** pre-configured
- 7. **Protractor** (E2E tests) pre-configured
- 8. **FontFace** - Add [@fontface](https://github.com/aamirshah/generator-boom/blob/master/font/USAGE.md) on fly
- 9. [Constants](https://github.com/aamirshah/generator-boom/blob/master/constant/USAGE.md) and [Values](https://github.com/aamirshah/generator-boom/blob/master/value/USAGE.md) will be added in main.js (No new file will be created)
- 10. [Adding Routes](https://github.com/aamirshah/generator-boom/blob/master/route/USAGE.md) will also create and link the css and controller in their respective folders.
- 11. [Adding Views](https://github.com/aamirshah/generator-boom/blob/master/view/USAGE.md) is also allowed
- 12. [Adding Styles](https://github.com/aamirshah/generator-boom/blob/master/style/USAGE.md) is also allowed
- 13. Use `gulp build`for dev mode and `gulp build:prod` for production.
- 14. Share code with client using command `gulp zip` (Will create the .zip file of build folder)
+ 1. **Gulp**
+ 2. **Browser-sync**
+ 3. **JSHint**
+ 4. **Wiredep** (Include bower based dependencies easily)
+ 4. **Protractor** (E2E tests)
+ 5. **Sass** (Modular approach based on Atomic Design principles)
+ 6. **AngularJS** (Modular approach based on best practices and recommendations for non-monolithic apps) 
+ 7. Inlcude **Bootstrap** or **Foundation** (both optional)
+ 8. Include **jQuery**, and **Modernizr** (both optional)
 
-<i class="icon-download"></i> Installation
 ---------
 
-First of all you need to have [Node.js](http://nodejs.org/) and Yeoman `npm install -g yo` installed.
+## Usage
 
-Install the Boom Generator
-
-```sh
-    npm install -g generator-boom
+Install `generator-nodes-angular`:
+```
+npm install -g git+https://github.com/dennishn/generator-nodes-angular.git
 ```
 
-Make a new Directory for the project and cd into it
-
-```sh
-    mkdir my-new-project && cd $_
+Make a new directory, and `cd` into it:
+```
+mkdir my-new-project && cd $_
 ```
 
-Then execute the boom command
-
-```sh
-    yo boom [app-name]
+Run `yo nodes-angular`, optionally passing an app name:
+```
+yo nodes-angular [app-name]
 ```
 
-Answer few question on the command prompt and **Thats it!**
+Run `gulp` for building and `gulp serve` for preview
 
 ---
 
-Running
--------
-
- 1. You first need to install all the node modules required by boom `npm install`
- 2. After that you need to download all the libraries using bower `bower install`
- 3. Finally to start the server `gulp`
- 
------------
-
-
-<i class="icon-file"></i> App Structure
+App Structure
 ---------------
 ```
- - app/
-    |- css/
-        |- application.scss
-        |- fonts.css
-    |- fonts/
-    |- images/
-    |- js/
-        |- controllers/
+ - src/
+    |- app/
+        |- [module]/
+            |- [module.js]
+            |- [module.tpl.html]
+    |- common/
         |- directives/
         |- factories/
         |- filters/
-        |- libs/
-        |- providers/
         |- services/
-        |- app.js
-    |- templates/
+    |- scss/
+        |- elements/
+        |- modules/
+        |- components/
+        |- ui-blocks/
+        |- layouts/
+        |- pages/
+        |- plugins/
+        |- main.scss
+        |- fonts.scss
+        |- _variabels.scss
+        |- _functions.scss
+        |- _mixins.scss
+        |- _normalize.scss
+    |- fonts/
+    |- img/
+    |- js/
     |- index.html
-    |- bower.json
-    |- package.json
-    |- gulpfile.js
 ```
 
 ----------
 
-<i class="icon-refresh"></i> Boom Commands
----------------
->Lets quick walk through the **boom** commands.And understand how quickly we can <i class="icon-cog"></i> `Setup` the entire project with a `boom`.
+## Generators
 
-The avilable sub-generators are
+Available sub-generators:
 
-* [boom:controller](https://github.com/aamirshah/generator-boom/blob/master/controller/USAGE.md)
-* [boom:directive](https://github.com/aamirshah/generator-boom/blob/master/directive/USAGE.md)
-* [boom:filter](https://github.com/aamirshah/generator-boom/blob/master/filter/USAGE.md)
-* [boom:route](https://github.com/aamirshah/generator-boom/blob/master/route/USAGE.md)
-* [boom:service](https://github.com/aamirshah/generator-boom/blob/master/service/USAGE.md)
-* [boom:provider](https://github.com/aamirshah/generator-boom/blob/master/provider/USAGE.md)
-* [boom:factory](https://github.com/aamirshah/generator-boom/blob/master/factory/USAGE.md)
-* [boom:value](https://github.com/aamirshah/generator-boom/blob/master/value/USAGE.md)
-* [boom:constant](https://github.com/aamirshah/generator-boom/blob/master/constant/USAGE.md)
-* [boom:font](https://github.com/aamirshah/generator-boom/blob/master/font/USAGE.md)
-* [boom:style](https://github.com/aamirshah/generator-boom/blob/master/style/USAGE.md)
-* [boom:view](https://github.com/aamirshah/generator-boom/blob/master/view/USAGE.md)
-* [boom:test](https://github.com/aamirshah/generator-boom/blob/master/test/USAGE.md)
+Non-angular:
+* [nodes-angular:font](https://github.com/dennishn/generator-nodes-angular/blob/master/font/USAGE.md)
+
+Angular:
+* [nodes-angular:controller](https://github.com/dennishn/generator-nodes-angular/blob/master/controller/USAGE.md)
+* [nodes-angular:directive](https://github.com/dennishn/generator-nodes-angular/blob/master/directive/USAGE.md)
+* [nodes-angular:filter](https://github.com/dennishn/generator-nodes-angular/blob/master/filter/USAGE.md)
+* [nodes-angular:route](https://github.com/dennishn/generator-nodes-angular/blob/master/route/USAGE.md)
+* [nodes-angular:service](https://github.com/dennishn/generator-nodes-angular/blob/master/service/USAGE.md)
+* [nodes-angular:provider](https://github.com/dennishn/generator-nodes-angular/blob/master/provider/USAGE.md)
+* [nodes-angular:factory](https://github.com/dennishn/generator-nodes-angular/blob/master/factory/USAGE.md)
+* [nodes-angular:value](https://github.com/dennishn/generator-nodes-angular/blob/master/value/USAGE.md)
+* [nodes-angular:constant](https://github.com/dennishn/generator-nodes-angular/blob/master/constant/USAGE.md)
+* [nodes-angular:view](https://github.com/dennishn/generator-nodes-angular/blob/master/view/USAGE.md)
+* [nodes-angular:test](https://github.com/dennishn/generator-nodes-angular/blob/master/test/USAGE.md)
 
 -----------------------------------
-
-Usage
----
-
-**BrowserSync** 
-
-On the terminal just type `gulp bs`. It will automatically open a new tab in the browser. Copy the URL to other devices. Thats it !
-
-
-**Production Build**
-
-In order to generate the production code for deployment use `$ gulp --type production` or in case you are too lazy then type `$ gulp prod`.
-
-------------------------
-
-Latest from Boom
----
-**Grunt** has been permanently removed. (Thanks to [Jascha Dachtera](https://github.com/jdachtera)).
-**Bower CSS** support has been added.
-Deprecated method `gulp.run` is removed.
-
-------------------------------
-
-
-<i class="icon-pencil"></i> Special Thanks
----------------
-
-I would like to thank following for creating awesome stuff
-
-* [AngularJS](http://angularjs.org) - MV* Framework for WebApps
-* [Grunt](http://gruntjs.com) - A JavaScript task runner
-* [Gulp](http://gulpjs.com/) - The streaming build system
-* [Bower](http://bower.io) - Front End Package Manager
-* [jQuery](http://jquery.com/) - DOM Manipulation Library
-* [Yeoman](http://yeoman.io/) - Worlflow for modern WebApps
-* [Generator](https://github.com/yeoman/generator-angular) - Yeoman Angular Generator
-* [BrowserSync](https://github.com/shakyShane/browser-sync) - Keep multiple browsers & devices in sync when building websites
-
--------------------
 
 
 License
 ---------------
 
 The MIT License
-
-Copyright (c) 2014 Aamir Shah (cse.aamir@gmail.com).
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
