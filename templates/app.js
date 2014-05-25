@@ -11,7 +11,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
 
 	$routeProvider
 		.when('/', {
-			templateUrl: 'app/main/main.html',
+			templateUrl: 'app/main/main.tpl.html',
             controller: 'MainCtrl'
 		})
 		.otherwise({redirectTo: '/'});
