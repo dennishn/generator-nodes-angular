@@ -1,0 +1,41 @@
+{
+  "name": "nodesgular",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-autoprefixer": "^0.0.7",
+    "gulp-bower-files": "^0.2.1",
+    "gulp-cache": "^0.1.1",
+    "gulp-clean": "^0.2.4",
+    "gulp-csso": "^0.2.6",
+    "gulp-embedlr": "~0.5.2",
+    "gulp-filter": "^0.4.1",
+    "gulp-flatten": "^0.0.2",
+    "gulp-imagemin": "^0.5.0",
+    "gulp-jshint": "^1.5.3",
+    "gulp-load-plugins": "^0.5.0",
+    "gulp-ruby-sass": "~0.5.0",
+    "gulp-size": "^0.3.0",
+    "gulp-uglify": "^0.3.0",
+    "gulp-useref": "^0.4.2",
+    "jshint-stylish": "^0.2.0",
+    "opn": "^0.1.1",
+    "streamqueue": "0.0.7",
+    "wiredep": "^1.6.2",
+    "tiny-lr": "0.0.7",
+    "ecstatic": "~0.5.3",
+    "http": "0.0.0",
+    "gulp-sass": "~0.7.1",
+    "path": "~0.4.9",
+    "browser-sync": "~0.9.1"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "start": "gulp",
+    "deploy": "rsync -zvr --delete ./build USER_NAME@IP-Addr:/PATH"
+  }
+}
