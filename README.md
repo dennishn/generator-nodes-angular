@@ -56,6 +56,7 @@ App Structure
         |- factories/
         |- filters/
         |- services/
+        |- providers/
     |- scss/
         |- elements/
         |- modules/
@@ -105,4 +106,3 @@ License
 ---------------
 
 The MIT License
-
