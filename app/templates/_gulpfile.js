@@ -19,6 +19,7 @@ var settings = {
         images: 'src/img',
         fonts: 'src/fonts',
         application: 'src/app',
+        common: 'src/common',
         javascript: 'src/js'
     },
     distPaths: {
@@ -46,11 +47,11 @@ gulp.task('styles', function () {
 gulp.task('jshint', function () {
     return gulp.src([
             settings.devPaths.application + '/**/*.js',
+            settings.devPaths.common + '/**/*.js',
             settings.devPaths.javascript + '/**/*.js']
         , { dot: true })
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish'))
-        .pipe($.jshint.reporter('fail'))
         .pipe($.size());
 });
 
@@ -149,6 +150,7 @@ gulp.task('watch', ['browser-sync'], function () {
     gulp.watch(settings.devPaths.app + '/**/*.html', reload);
     gulp.watch(settings.devPaths.sass + '/**/*.scss', ['styles']);
     gulp.watch(settings.devPaths.application + '/**/*.js', ['jshint']);
+    gulp.watch(settings.devPaths.common + '/**/*.js', ['jshint']);
     gulp.watch(settings.devPaths.javascript + '/**/*.js', ['jshint']);
     gulp.watch(settings.devPaths.images + '/**/*', ['images']);
     gulp.watch('bower.json', ['wiredep']);
