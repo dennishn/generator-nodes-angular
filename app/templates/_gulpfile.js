@@ -117,6 +117,7 @@ gulp.task('browser-sync', ['styles'], function () {
             settings.devPaths.app + '/**/*.html',
             settings.devPaths.css + '/**/*.css',
             settings.devPaths.application + '/**/*.js',
+            settings.devPaths.common + '/**/*.js',
             settings.devPaths.javascript + '/**/*.js',
             settings.devPaths.images + '/**/*'
         ], {
