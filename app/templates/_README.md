@@ -1,43 +1,41 @@
- <%= _.slugify(_.humanize(appname)) %> WebApp!
+ <%= _.slugify(_.humanize(appname)) %>
 =====================
 
 ---------------
 
-This is an Angular.js App and is powered by [Boom Angular Generator](https://npmjs.org/package/generator-boom)
-
-
-
 Installation
----------
 
-Install the Boom Generator first.
 
 ```sh
-    git clone [clone-url] app
-    cd app
+    sudo npm install
+    bower install
 ```
 
-Install [Boom Angular Generator](https://npmjs.org/package/generator-boom)
+Fire up the server
 
 ```sh
-    npm install -g generator-boom
+    gulp serve
 ```
 
-Then install all develpment dependencies
+Build a distributable version of the project
 
 ```sh
-    npm start
+    gulp build
 ```
-
-Finally, fire up the server
-
-```
-    gulp
-```
-
-**Thats it!**
 
 
 
 ----------
 
+# Project Name:  <%= _.slugify(_.humanize(appname)) %>
+
+Description
+
+**Key words**: 
+
+## People Involved
+**Client:** 
+**Project Manager:** 
+**Developer(s):** 
+
+# Developer Notes:
