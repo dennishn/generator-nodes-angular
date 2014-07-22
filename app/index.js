@@ -236,6 +236,9 @@ Generator.prototype.app = function app() {
   this.mkdir('src/fonts');
 
   this.mkdir('src/scss');
+  this.mkdir('src/scss/mixins');
+  this.mkdir('src/scss/functions');
+  this.mkdir('src/scss/base');
   this.mkdir('src/scss/elements');
   this.mkdir('src/scss/modules');
   this.mkdir('src/scss/components');
@@ -323,7 +326,7 @@ Generator.prototype.gitSubmodule = function() {
     var cb = this.async(),
         me = this;
 
-    git.submoduleAdd('https://github.com/dennishn/nodes_styleguide.git', 'styleguide', function(error) {
+    git.submoduleAdd('https://github.com/dennishn/nodes_styleguide.git', 'src/styleguide', function(error) {
         // if (error) me.logger.error(error);
 
         git.checkout('master', function(error) {
