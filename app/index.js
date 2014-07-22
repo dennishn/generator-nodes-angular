@@ -330,7 +330,17 @@ Generator.prototype.createIndexHtml = function createIndexHtml() {
   this.write(path.join(this.appPath, 'index.html'), this.indexFile);
 };
 
-Generator.prototype.gitIsTheShit = function() {
+Generator.prototype.gitInit = function() {
+    var cb = this.async(),
+        me = this;
+
+    git.init(function(error) {
+        git.add('.', function(error) {}).commit('Initial Commit', function(error) {
+            cb();
+        });
+    });
+}
+Generator.prototype.gitSubmodule = function() {
     // function(repo, path, then)
     var cb = this.async(),
         me = this;
