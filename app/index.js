@@ -336,10 +336,10 @@ Generator.prototype.gitIsTheShit = function() {
         me = this;
 
     git.submoduleAdd('https://github.com/dennishn/nodes_styleguide.git', 'styleguide', function(error) {
-        if (error) me.logger.error(error);
+        // if (error) me.logger.error(error);
 
         git.checkout('master', function(error) {
-            if (error) me.logger.error(error);
+            // if (error) me.logger.error(error);
 
             cb();
         });
