@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title><%= scriptAppName %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- build:css css/main.css -->
+    <link href="{{projectassets}}/css/main.css" rel="stylesheet" />
+    <link href="{{assets}}/css/docs.css" rel="stylesheet" />
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+</head>
+
+<body ng-app="<%= scriptAppName %>">
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <nav class="tab-bar">
+                <section class="left-small">
+                    <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                </section>
+
+                <section class="middle tab-bar-section">
+                    <h1 class="title">Foundation</h1>
+                </section>
+
+            </nav>
+
+            <aside class="left-off-canvas-menu">
+                {{> navigation}}
+            </aside>
+
+            <section class="main-section">
+                <h1 id="{{title}}">{{title}}</h1>
+                {{#markdown}}
+                  {{> body}}
+                {{/markdown}}
+            </section>
+
+            <a class="exit-off-canvas"></a>
+
+        </div>
+    </div>
+
+    <!-- build:js scripts/app.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <script src="{{projectassets}}/app/app.js"></script>
+    <script src="{{projectassets}}/app/main/main.js"></script>
+
+    <script src="{{assets}}/js/X-rayHTML.js"></script>
+    <script src="{{assets}}/js/highlight.pack.js"></script>
+    <script src="{{assets}}/js/docs.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

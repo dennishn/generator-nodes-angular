@@ -1,41 +1,31 @@
 {
   "name": "generator-nodes-angular",
   "version": "0.1.0",
-
   "description": "An Angular.js generator for Yeoman",
-
   "keywords": [
     "yeoman-generator"
   ],
-
   "homepage": "",
   "bugs": "",
-
   "author": {
     "name": "Dennis Haulund Nielsen",
     "email": "dhni@nodes.dk",
     "url": "https://github.com/dennishn"
   },
-
   "main": "app/index.js",
   "repository": {
     "type": "git",
     "url": ""
   },
-
   "dependencies": {
+    "simple-git": "^0.10.0",
     "yeoman-generator": "~0.14.0"
   },
-
-  "devDependencies": {
-
-  },
-
+  "devDependencies": {},
   "engines": {
     "node": ">=0.8.0",
     "npm": ">=1.2.10"
   },
-
   "licenses": [
     {
       "type": "MIT"

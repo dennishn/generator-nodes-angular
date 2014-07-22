@@ -1,8 +1,10 @@
 'use strict';
 var util = require('util'),
-  path = require('path'),
-  yeoman = require('yeoman-generator'),
-  angularUtils = require('../util.js');
+    path = require('path'),
+    yeoman = require('yeoman-generator'),
+    angularUtils = require('../util.js'),
+    git = require('simple-git')();
+
 
 var fs = require('fs');
 
@@ -75,7 +77,7 @@ Generator.prototype.welcome = function welcome() {
   // welcome message
   if (!this.options['skip-welcome-message']) {
 
-    console.log('Welcome to the Boom Angular.js WebApp Generator.\n');
+    console.log('Welcome to the Nodes Angular.js WebApp Generator.\n');
     // have Yeoman greet the user.
     console.log(this.yeoman);
   }
@@ -116,7 +118,7 @@ Generator.prototype.askForModules = function askForModules() {
   var prompts = [{
     type: 'checkbox',
     name: 'modules',
-    message: 'Which modules would you like to include ?',
+    message: 'Which Angular modules would you like to include ?',
     choices: [{
       value: 'resourceModule',
       name: 'angular-resource.js',
@@ -188,7 +190,7 @@ Generator.prototype.askForFramework = function askForFramework() {
   var prompts = [{
     type: 'checkbox',
     name: 'framework',
-    message: 'Which framework would you like to include ?',
+    message: 'Would you like to include a framework ?',
     choices: [{
       value: 'foundation',
       name: 'Foundation',
@@ -232,6 +234,7 @@ Generator.prototype.app = function app() {
   this.mkdir('src/common');
   this.mkdir('src/img');
   this.mkdir('src/fonts');
+
   this.mkdir('src/scss');
   this.mkdir('src/scss/elements');
   this.mkdir('src/scss/modules');
@@ -240,6 +243,29 @@ Generator.prototype.app = function app() {
   this.mkdir('src/scss/layouts');
   this.mkdir('src/scss/pages');
   this.mkdir('src/scss/plugins');
+
+  this.mkdir('src/styleguide/assets');
+  this.mkdir('src/styleguide/assets/js');
+  this.mkdir('src/styleguide/assets/scss');
+  // this.mkdir('src/styleguide/assets/scss/elements');
+  // this.mkdir('src/styleguide/assets/scss/modules');
+  // this.mkdir('src/styleguide/assets/scss/components');
+  // this.mkdir('src/styleguide/assets/scss/ui-blocks');
+  // this.mkdir('src/styleguide/assets/scss/layouts');
+  // this.mkdir('src/styleguide/assets/scss/pages');
+  // this.mkdir('src/styleguide/assets/scss/plugins');
+
+  this.mkdir('src/styleguide/data');
+
+  this.mkdir('src/styleguide/layouts');
+
+  this.mkdir('src/styleguide/pages');
+  this.mkdir('src/styleguide/pages/documentation');
+  // this.mkdir('src/styleguide/pages/documentation/styles');
+  // this.mkdir('src/styleguide/pages/documentation/application');
+  // this.mkdir('src/styleguide/pages/documentation/libs');
+
+  this.mkdir('src/styleguide/partials');
 
   this.mkdir('tests/e2e/');
   this.mkdir('tests/api/');
@@ -253,11 +279,11 @@ Generator.prototype.app = function app() {
   this.scssFile = this.engine(this.read('../../templates/main.scss'), this);
   this.write(path.join(this.appPath, '/scss/main.scss'), this.scssFile);
 
-  this.functionssFile = this.engine(this.read('../../templates/functions.scss'), this);
-  this.write(path.join(this.appPath, '/scss/_functions.scss'), this.functionssFile);
+  // this.functionssFile = this.engine(this.read('../../templates/functions.scss'), this);
+  // this.write(path.join(this.appPath, '/scss/_functions.scss'), this.functionssFile);
 
-  this.mixinsFile = this.engine(this.read('../../templates/mixins.scss'), this);
-  this.write(path.join(this.appPath, '/scss/_mixins.scss'), this.mixinsFile);
+  // this.mixinsFile = this.engine(this.read('../../templates/mixins.scss'), this);
+  // this.write(path.join(this.appPath, '/scss/_mixins.scss'), this.mixinsFile);
 
   this.variablesFile = this.engine(this.read('../../templates/variables.scss'), this);
   this.write(path.join(this.appPath, '/scss/_variables.scss'), this.variablesFile);
@@ -302,4 +328,18 @@ Generator.prototype.createIndexHtml = function createIndexHtml() {
 
   this.indexFile = this.indexFile.replace(/&apos;/g, "'");
   this.write(path.join(this.appPath, 'index.html'), this.indexFile);
+};
+
+Generator.prototype.gitIsTheShit = function() {
+    // function(repo, path, then)
+    git.submoduleAdd('https://github.com/dennishn/nodes_styleguide.git', 'styleguide', function(error) {
+        if (error) me.logger.error(error);
+
+        git.checkout('master', function(error) {
+            if (error) me.logger.error(error);
+
+            done();
+        });
+    });
+
 };
