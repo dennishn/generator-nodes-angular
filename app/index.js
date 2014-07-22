@@ -332,13 +332,16 @@ Generator.prototype.createIndexHtml = function createIndexHtml() {
 
 Generator.prototype.gitIsTheShit = function() {
     // function(repo, path, then)
+    var cb = this.async(),
+        me = this;
+
     git.submoduleAdd('https://github.com/dennishn/nodes_styleguide.git', 'styleguide', function(error) {
         if (error) me.logger.error(error);
 
         git.checkout('master', function(error) {
             if (error) me.logger.error(error);
 
-            done();
+            cb();
         });
     });
 
