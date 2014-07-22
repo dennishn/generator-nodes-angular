@@ -26,6 +26,21 @@ Generator.prototype.askForHtml = function askFor() {
     cb();
   }.bind(this));
 };
+Generator.prototype.askForScss = function askFor() {
+  var cb = this.async();
+
+  this.prompt([{
+    type: "confirm",
+    name: "scss",
+    message: "Does this Directive need a scss template ?",
+    default: true
+  }], function (props) {
+
+    this.scss = props.scss;
+
+    cb();
+  }.bind(this));
+};
 
 Generator.prototype.createDirectiveFiles = function createDirectiveFiles() {
   this.generateSourceAndTest(
@@ -34,10 +49,12 @@ Generator.prototype.createDirectiveFiles = function createDirectiveFiles() {
     'common/directives/' + this.name,
     this.options['add-index'] || true
   );
-  this.template(
-    '../scss/blank.scss',
-    path.join(this.env.options.appPath, 'common/directives/' + this.name, '_' + this.name.toLowerCase() + '.scss')
-  );
+  if(this.scss) {
+    this.template(
+      '../scss/blank.scss',
+      path.join(this.env.options.appPath, 'common/directives/' + this.name, '_' + this.name.toLowerCase() + '.scss')
+    );
+  }
   if(this.html) {
     this.template(
         '../main.tpl.html',
