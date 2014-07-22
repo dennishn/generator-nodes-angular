@@ -244,29 +244,6 @@ Generator.prototype.app = function app() {
   this.mkdir('src/scss/pages');
   this.mkdir('src/scss/plugins');
 
-  this.mkdir('src/styleguide/assets');
-  this.mkdir('src/styleguide/assets/js');
-  this.mkdir('src/styleguide/assets/scss');
-  // this.mkdir('src/styleguide/assets/scss/elements');
-  // this.mkdir('src/styleguide/assets/scss/modules');
-  // this.mkdir('src/styleguide/assets/scss/components');
-  // this.mkdir('src/styleguide/assets/scss/ui-blocks');
-  // this.mkdir('src/styleguide/assets/scss/layouts');
-  // this.mkdir('src/styleguide/assets/scss/pages');
-  // this.mkdir('src/styleguide/assets/scss/plugins');
-
-  this.mkdir('src/styleguide/data');
-
-  this.mkdir('src/styleguide/layouts');
-
-  this.mkdir('src/styleguide/pages');
-  this.mkdir('src/styleguide/pages/documentation');
-  // this.mkdir('src/styleguide/pages/documentation/styles');
-  // this.mkdir('src/styleguide/pages/documentation/application');
-  // this.mkdir('src/styleguide/pages/documentation/libs');
-
-  this.mkdir('src/styleguide/partials');
-
   this.mkdir('tests/e2e/');
   this.mkdir('tests/api/');
 
@@ -308,6 +285,7 @@ Generator.prototype.app = function app() {
   this.copy('_bower.json', 'bower.json');
   this.copy('_.bowerrc', '.bowerrc');
   this.copy('_gulpfile.js', 'gulpfile.js');
+  this.copy('_Gruntfile.js', 'Gruntfile.js');
 };
 
 Generator.prototype.projectfiles = function projectfiles() {

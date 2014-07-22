@@ -6,6 +6,7 @@ var gulp = require('gulp');
 
 // load plugins
 var $ = require('gulp-load-plugins')();
+var deploy = require("gulp-gh-pages");
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
@@ -44,6 +45,18 @@ gulp.task('styles', function () {
         .pipe($.size());
 });
 
+gulp.task('sg-styles', function () {
+    return gulp.src('src/styleguide/assets/scss/docs.scss')
+        .pipe($.rubySass({
+            style: 'expanded',
+            precision: 10
+        }))
+        .pipe($.autoprefixer('last 2 version'))
+        .pipe(gulp.dest('src/styleguide/assets/css'))
+        .pipe(reload({stream:true}))
+        .pipe($.size());
+});
+
 gulp.task('jshint', function () {
     return gulp.src([
             settings.devPaths.application + '/**/*.js',
@@ -59,8 +72,8 @@ gulp.task('html', ['styles'], function () {
     var jsFilter = $.filter('/**/*.js');
     var cssFilter = $.filter('/**/*.css');
 
-    return gulp.src([settings.devPaths.app + '/**/*.html', '!src/bower_components/**/*.html'])
-        .pipe($.useref.assets({searchPath: '{.tmp,' + settings.devPaths.app + '}'}))
+    return gulp.src([settings.devPaths.app + '/**/*.html', '!src/bower_components/**/*.html', '!src/styleguide/**/*.html'])
+        .pipe($.useref.assets({searchPath: [settings.devPaths.app]}))
         .pipe(jsFilter)
         .pipe($.uglify())
         .pipe(jsFilter.restore())
@@ -101,11 +114,43 @@ gulp.task('extras', function () {
         .pipe(gulp.dest(settings.distPaths.app));
 });
 
+gulp.task('html-sg', function () {
+    var jsFilter = $.filter('/**/*.js');
+    var cssFilter = $.filter('/**/*.css');
+
+    return gulp.src('src/styleguide/*.html')
+        .pipe($.useref.assets())
+        .pipe(jsFilter)
+        .pipe($.uglify())
+        .pipe(jsFilter.restore())
+        .pipe(cssFilter)
+        .pipe($.csso())
+        .pipe(cssFilter.restore())
+        .pipe($.useref.restore())
+        .pipe($.useref())
+        .pipe(gulp.dest('styleguide/'))
+        .pipe($.size());
+});
+gulp.task('generate-sg-project', function () {
+    return gulp.src(['dist/**/*.*'], { dot: true })
+        .pipe(gulp.dest('styleguide/'));
+});
+gulp.task('generate-sg', function () {
+    return gulp.src(['src/styleguide/assets/**/*.*'], { dot: true })
+        .pipe(gulp.dest('styleguide/assets'));
+});
+
+gulp.task('deploy-sg', function() {
+    return gulp.src('styleguide')
+        .pipe($.subtree());
+});
+
 gulp.task('clean', function () {
     return gulp.src(['.tmp', settings.distPaths.app], { read: false }).pipe($.clean());
 });
 
 gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras']);
+gulp.task('build-sg', ['build', 'generate-sg-project', 'generate-sg', 'html-sg']);
 gulp.task('serve', ['wiredep', 'watch']);
 
 gulp.task('default', ['clean'], function () {
@@ -115,6 +160,8 @@ gulp.task('default', ['clean'], function () {
 gulp.task('browser-sync', ['styles'], function () {
     browserSync.init([
             settings.devPaths.app + '/**/*.html',
+            '!styleguide/**/*.{html,md}',
+            'styleguide/assets/**.*',
             settings.devPaths.css + '/**/*.css',
             settings.devPaths.application + '/**/*.js',
             settings.devPaths.common + '/**/*.js',
@@ -144,12 +191,23 @@ gulp.task('wiredep', function() {
                 ]
         }))
         .pipe(gulp.dest(settings.devPaths.app));
+
+    gulp.src('src/styleguide/layouts/*.html')
+        .pipe(wiredep({
+            exclude: [
+                'modernizr.js',
+                'foundation.css'
+            ],
+            ignorePath: '../'
+        }))
+        .pipe(gulp.dest('src/styleguide/layouts'));
 });
 
 gulp.task('watch', ['browser-sync'], function () {
 
     gulp.watch(settings.devPaths.app + '/**/*.html', reload);
     gulp.watch(settings.devPaths.sass + '/**/*.scss', ['styles']);
+    gulp.watch('src/styleguide/assets/scss/**/*.scss', ['sg-styles']);
     gulp.watch(settings.devPaths.application + '/**/*.js', ['jshint']);
     gulp.watch(settings.devPaths.common + '/**/*.js', ['jshint']);
     gulp.watch(settings.devPaths.javascript + '/**/*.js', ['jshint']);

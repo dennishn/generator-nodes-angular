@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
+    "assemble": "^0.4.41",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
     "gulp": "^3.6.0",
     "gulp-autoprefixer": "^0.0.7",
     "gulp-bower-files": "^0.2.1",
@@ -16,7 +20,9 @@
     "gulp-jshint": "^1.5.3",
     "gulp-load-plugins": "^0.5.0",
     "gulp-ruby-sass": "~0.5.0",
+    "gulp-sass": "~0.7.1",
     "gulp-size": "^0.3.0",
+    "gulp-subtree": "^0.1.0",
     "gulp-uglify": "^0.3.0",
     "gulp-useref": "^0.4.2",
     "jshint-stylish": "^0.2.0",
@@ -26,9 +32,13 @@
     "tiny-lr": "0.0.7",
     "ecstatic": "~0.5.3",
     "http": "0.0.0",
-    "gulp-sass": "~0.7.1",
     "path": "~0.4.9",
-    "browser-sync": "~0.9.1"
+    "browser-sync": "~0.9.1",
+    "handlebars-helper-rel": "^0.2.0",
+    "handlebars-helper-slugify": "^0.3.2",
+    "handlebars-helpers": "git://github.com/assemble/handlebars-helpers#v0.6.0",
+    "highlight.js": "^8.1.0",
+    "wiredep": "^1.6.2"
   },
   "engines": {
     "node": ">=0.8.0"

@@ -17,3 +17,10 @@ Generator.prototype.createDirectiveFiles = function createDirectiveFiles() {
     this.options['add-index'] || true
   );
 };
+
+Generator.prototype.createDocumentation = function createDocumentation() {
+  this.template(
+    'styleguide/doc.html',
+    path.join(this.env.options.appPath, 'styleguide/pages/documentation/directives/' + this.name, this.name.toLowerCase() + '.html');
+  )
+}
