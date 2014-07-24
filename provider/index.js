@@ -43,6 +43,7 @@ var util = require('util'),
 
 var Generator = module.exports = function Generator() {
   ScriptBase.apply(this, arguments);
+  this.type = 'providers';
 };
 
 util.inherits(Generator, ScriptBase);
@@ -93,7 +94,7 @@ Generator.prototype.createDirectiveFiles = function createDirectiveFiles() {
   }
   if(this.html) {
     this.template(
-        '../main.tpl.html',
+        '../simple.tpl.html',
         path.join(this.env.options.appPath, 'common/providers/' + this.name, this.name.toLowerCase() + '.tpl.html')
     )
   }
@@ -109,8 +110,10 @@ Generator.prototype.createDocumentation = function createDocumentation() {
 Generator.prototype.createStyle = function createStyle() {
     var config = {
         file: path.join(this.env.options.appPath, 'scss/main.scss'),
-        needle: '/* ---> Do not delete this comment (Services) <--- */',
+        needle: '/* ---> Do not delete this comment (Providers) <--- */',
         splicable: ['@import "../common/providers/' + this.name + '/' + this.name.toLowerCase() + '";']
     }
-    angularUtils.rewriteFile(config);
+    if(this.scss) {
+        angularUtils.rewriteFile(config);
+    }
 }

@@ -55,7 +55,7 @@ util.inherits(Generator, ScriptBase);
 
 Generator.prototype.createViewFiles = function createDirectiveFiles() {
   this.template(
-      '../main.tpl.html',
+      '../simple.tpl.html',
       path.join(this.env.options.appPath, 'app/' + this.name, this.name.toLowerCase() + '.tpl.html')
   )
 };

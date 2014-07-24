@@ -7,6 +7,7 @@ var util = require('util'),
 
 var Generator = module.exports = function Generator() {
   ScriptBase.apply(this, arguments);
+  this.type = 'directives';
 };
 
 util.inherits(Generator, ScriptBase);
@@ -57,7 +58,7 @@ Generator.prototype.createDirectiveFiles = function createDirectiveFiles() {
   }
   if(this.html) {
     this.template(
-        '../main.tpl.html',
+        '../simple.tpl.html',
         path.join(this.env.options.appPath, 'common/directives/' + this.name, this.name.toLowerCase() + '.tpl.html')
     )
   }
@@ -76,5 +77,7 @@ Generator.prototype.createStyle = function createStyle() {
         needle: '/* ---> Do not delete this comment (Directives) <--- */',
         splicable: ['@import "../common/directives/' + this.name + '/' + this.name.toLowerCase() + '";']
     }
-    angularUtils.rewriteFile(config);
+    if(this.scss) {
+        angularUtils.rewriteFile(config);
+    }
 }

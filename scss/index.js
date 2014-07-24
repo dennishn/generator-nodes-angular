@@ -48,7 +48,7 @@ Generator.prototype.createDocumentationFiles = function createDocumentationFiles
 
 Generator.prototype.createScss = function createScss() {
   this.template(
-      '../mixins.scss',
+      '../simple.scss',
       path.join(this.env.options.appPath, 'scss/' + this.type + '/_' + this.name + '.scss')
   )
 };
@@ -57,7 +57,7 @@ Generator.prototype.createStyle = function createStyle() {
     var config = {
         file: path.join(this.env.options.appPath, 'scss/main.scss'),
         needle: '/* ---> Do not delete this comment (' + this.type + ') <--- */',
-        splicable: ['@import "../' + this.type + '/' + this.name.toLowerCase() + '";']
+        splicable: ['@import "' + this.type + '/' + this.name.toLowerCase() + '";']
     }
     angularUtils.rewriteFile(config);
 }

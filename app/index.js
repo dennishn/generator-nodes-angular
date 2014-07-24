@@ -315,10 +315,8 @@ Generator.prototype.gitInit = function() {
     var cb = this.async(),
         me = this;
 
-    git.init(function(error) {
-        git.add('.', function(error) {}).commit('Initial Commit', function(error) {
-            cb();
-        });
+    git.init(function() {
+        cb();
     });
 }
 Generator.prototype.gitSubmodule = function() {
@@ -329,7 +327,7 @@ Generator.prototype.gitSubmodule = function() {
     git.submoduleAdd('https://github.com/dennishn/nodes_styleguide.git', 'src/styleguide', function(error) {
         // if (error) me.logger.error(error);
 
-        git.checkout('master', function(error) {
+        git.checkout('master', function() {
             // if (error) me.logger.error(error);
 
             cb();
@@ -337,3 +335,37 @@ Generator.prototype.gitSubmodule = function() {
     });
 
 };
+
+Generator.prototype.readSg = function readSg() {
+
+  this.indexFile = this.engine(this.read('../../templates/sg_default.html'), this);
+
+};
+
+Generator.prototype.createSg = function createSg() {
+
+  this.indexFile = this.indexFile.replace(/&apos;/g, "'");
+  this.write(path.join(this.appPath, 'styleguide/layouts/default.html'), this.indexFile, {'flags': 'w'});
+};
+
+Generator.prototype.detachSg = function detach() {
+    var cb = this.async();
+
+    fs.unlink('src/styleguide/.git', function(error) {
+        git.rmKeepLocal('styleguide', function() {
+            git.rm('styleguide/.git', function() {
+                cb();
+            });
+        });
+    });
+
+
+
+}
+
+Generator.prototype.finishOff = function finish() {
+    var cb = this.async();
+    git.add('.').commit('Initial Commit', function() {
+        cb();
+    });
+}

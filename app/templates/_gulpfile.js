@@ -33,7 +33,7 @@ var settings = {
 };
 
 gulp.task('styles', function () {
-    return gulp.src(settings.devPaths.sass + '/main.scss')
+    return gulp.src([settings.devPaths.sass + '/main.scss', settings.devPaths.sass + '/fonts.scss'])
         .pipe($.rubySass({
             style: 'expanded',
             precision: 10

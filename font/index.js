@@ -44,7 +44,7 @@ Generator.prototype.createViewFiles = function createViewFiles() {
     ]
   };
 
-  this.mkdir('app/fonts/'+this.name);
+  this.mkdir('src/fonts/'+this.name);
   angularUtils.rewriteFile(config);
 
   console.log('Added font '+ this.name);

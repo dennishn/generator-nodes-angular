@@ -25,9 +25,9 @@ Generator.prototype.askForExampleValues = function askFor() {
         'ui-blocks',
         'layouts',
         'pages',
-        'directive',
-        'service',
-        'provider'
+        'directives',
+        'services',
+        'providers'
     ]
   }], function (props) {
 

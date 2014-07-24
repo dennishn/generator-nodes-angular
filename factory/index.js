@@ -1,13 +1,15 @@
 'use strict';
 var util = require('util'),
+  path = require('path'),
   ScriptBase = require('../script-base.js');
 
 
 var Generator = module.exports = function Generator() {
   ScriptBase.apply(this, arguments);
+  this.type = 'factories';
 
   this.option('api', {
-    desc: 'Add api boilerplate?',
+    desc: 'Adding api skeleton',
     type: String,
     required: 'true'
   });
@@ -35,6 +37,6 @@ Generator.prototype.createDirectiveFiles = function createDirectiveFiles() {
 Generator.prototype.createDocumentation = function createDocumentation() {
   this.template(
     '../styleguide/doc.html',
-    path.join(this.env.options.appPath, 'styleguide/pages/documentation/application/services/' + this.name, this.name.toLowerCase() + '.html')
+    path.join(this.env.options.appPath, 'styleguide/pages/documentation/application/factories/' + this.name, this.name.toLowerCase() + '.html')
   )
 };

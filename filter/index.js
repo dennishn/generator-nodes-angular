@@ -6,6 +6,7 @@ var util = require('util'),
 
 var Generator = module.exports = function Generator() {
   ScriptBase.apply(this, arguments);
+  this.type = 'filters';
 };
 
 util.inherits(Generator, ScriptBase);
@@ -22,6 +23,6 @@ Generator.prototype.createFilterFiles = function createFilterFiles() {
 Generator.prototype.createDocumentation = function createDocumentation() {
   this.template(
     '../styleguide/doc.html',
-    path.join(this.env.options.appPath, 'styleguide/pages/documentation/application/factories/' + this.name, this.name.toLowerCase() + '.html')
+    path.join(this.env.options.appPath, 'styleguide/pages/documentation/application/filters/' + this.name, this.name.toLowerCase() + '.html')
   )
 };

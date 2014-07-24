@@ -94,11 +94,19 @@ MywebGenerator.prototype.addScriptToIndex = function (script, module) {
   try {
     var appPath = this.env.options.appPath;
     var fullPath = path.join(appPath, 'index.html');
+    var sgPath = path.join(appPath, 'styleguide/layouts/default.html')
     angularUtils.rewriteFile({
       file: fullPath,
       needle: '<!-- endbuild -->',
       splicable: [
         '<script src="' + script + '.js"></script>'
+      ]
+    });
+    angularUtils.rewriteFile({
+      file: sgPath,
+      needle: '<!-- endbuild -->',
+      splicable: [
+        '<script src="../' + script + '.js"></script>'
       ]
     });
   } catch (e) {

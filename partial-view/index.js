@@ -59,7 +59,7 @@ Generator.prototype.askForModuleValue = function askFor() {
   this.prompt([{
     type: "input",
     name: "value",
-    message: "Which parent view does this partial belong to ?"
+    message: "Which parent view does this partial belong to? '" + this.name + "' : "
   }], function (props) {
 
     this.parent = props.value;
@@ -71,7 +71,7 @@ Generator.prototype.askForModuleValue = function askFor() {
 
 Generator.prototype.createViewFiles = function createDirectiveFiles() {
   this.template(
-      '../main.tpl.html',
+      '../simple.tpl.html',
       path.join(this.env.options.appPath, 'app/' + this.parent, this.parent.toLowerCase() + '.partial.html')
   )
 };
