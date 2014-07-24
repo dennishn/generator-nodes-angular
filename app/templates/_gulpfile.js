@@ -6,7 +6,6 @@ var gulp = require('gulp');
 
 // load plugins
 var $ = require('gulp-load-plugins')();
-var deploy = require("gulp-gh-pages");
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 

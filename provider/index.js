@@ -109,7 +109,7 @@ Generator.prototype.createDocumentation = function createDocumentation() {
 Generator.prototype.createStyle = function createStyle() {
     var config = {
         file: path.join(this.env.options.appPath, 'scss/main.scss'),
-        needle: '/* ---> Do not delete this comment (Providers) <--- */',
+        needle: '/* ---> Do not delete this comment (Services) <--- */',
         splicable: ['@import "../common/providers/' + this.name + '/' + this.name.toLowerCase() + '";']
     }
     angularUtils.rewriteFile(config);

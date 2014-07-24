@@ -10,10 +10,13 @@
 //
 
 //Nodes Globals
-//Mixins must NEVER be dependant on variables
+//Mixins and Functions must NEVER be dependant on variables
 //Variables can have their values computed by mixins
 @import
-    "mixins",
+    // Functions
+    /* ---> Do not delete this comment (functions) <--- */
+    // Mixins
+    /* ---> Do not delete this comment (mixins) <--- */
     "variables";
 
 <% if (bootstrap) { %>
@@ -93,6 +96,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
     "../bower_components/foundation/scss/foundation/components/forms",
     "../bower_components/foundation/scss/foundation/components/global",
     "../bower_components/foundation/scss/foundation/components/grid",
+    "../bower_components/foundation/scss/foundation/components/icon-bar",
     "../bower_components/foundation/scss/foundation/components/inline-lists",
     "../bower_components/foundation/scss/foundation/components/joyride",
     "../bower_components/foundation/scss/foundation/components/keystrokes",
@@ -109,10 +113,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
     "../bower_components/foundation/scss/foundation/components/side-nav",
     "../bower_components/foundation/scss/foundation/components/split-buttons",
     "../bower_components/foundation/scss/foundation/components/sub-nav",
-    "../bower_components/foundation/scss/foundation/components/switch",
+    "../bower_components/foundation/scss/foundation/components/switches",
     "../bower_components/foundation/scss/foundation/components/tables",
     "../bower_components/foundation/scss/foundation/components/tabs",
     "../bower_components/foundation/scss/foundation/components/thumbs",
+    "../bower_components/foundation/scss/foundation/components/toolbar",
     "../bower_components/foundation/scss/foundation/components/tooltips",
     "../bower_components/foundation/scss/foundation/components/offcanvas",
     "../bower_components/foundation/scss/foundation/components/top-bar",
@@ -122,18 +127,27 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 <% } %>
 
 // Style Components (Uncomment the import statement below to get started)
-// @import
-// Utilities
+// Base
+/* ---> Do not delete this comment (base) <--- */
 // Elements
+/* ---> Do not delete this comment (elements) <--- */
 // Modules
+/* ---> Do not delete this comment (modules) <--- */
 // Components
+/* ---> Do not delete this comment (components) <--- */
 // UI-Blocks
+/* ---> Do not delete this comment (ui-blocks) <--- */
 // Layouts
+/* ---> Do not delete this comment (layouts) <--- */
 // Pages
+/* ---> Do not delete this comment (pages) <--- */
 // Plugins
+/* ---> Do not delete this comment (plugins) <--- */
 
 // Application Components (Uncomment the import statement below to get started)
 // Directives
 /* ---> Do not delete this comment (Directives) <--- */
+// Services
+/* ---> Do not delete this comment (Services) <--- */
 // Providers
 /* ---> Do not delete this comment (Providers) <--- */

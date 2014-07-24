@@ -53,9 +53,25 @@ var Generator = module.exports = function Generator() {
 
 util.inherits(Generator, ScriptBase);
 
+Generator.prototype.askForModuleValue = function askFor() {
+  var cb = this.async();
+
+  this.prompt([{
+    type: "input",
+    name: "value",
+    message: "Which parent view does this partial belong to ?"
+  }], function (props) {
+
+    this.parent = props.value;
+
+    cb();
+  }.bind(this));
+};
+
+
 Generator.prototype.createViewFiles = function createDirectiveFiles() {
   this.template(
       '../main.tpl.html',
-      path.join(this.env.options.appPath, 'app/' + this.name, this.name.toLowerCase() + '.tpl.html')
+      path.join(this.env.options.appPath, 'app/' + this.parent, this.parent.toLowerCase() + '.partial.html')
   )
 };

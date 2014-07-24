@@ -7,7 +7,7 @@ var Generator = module.exports = function Generator() {
   ScriptBase.apply(this, arguments);
 
   this.option('api', {
-    desc: 'Adding api skeleton',
+    desc: 'Add api boilerplate?',
     type: String,
     required: 'true'
   });
@@ -30,4 +30,11 @@ Generator.prototype.createDirectiveFiles = function createDirectiveFiles() {
     'common/factories',
     this.options['add-index'] || true
   );
+};
+
+Generator.prototype.createDocumentation = function createDocumentation() {
+  this.template(
+    '../styleguide/doc.html',
+    path.join(this.env.options.appPath, 'styleguide/pages/documentation/application/services/' + this.name, this.name.toLowerCase() + '.html')
+  )
 };

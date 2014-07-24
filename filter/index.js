@@ -1,5 +1,6 @@
 'use strict';
 var util = require('util'),
+    path = require('path'),
 	ScriptBase = require('../script-base.js');
 
 
@@ -16,4 +17,11 @@ Generator.prototype.createFilterFiles = function createFilterFiles() {
     'common/filters',
     this.options['add-index'] || true
   );
+};
+
+Generator.prototype.createDocumentation = function createDocumentation() {
+  this.template(
+    '../styleguide/doc.html',
+    path.join(this.env.options.appPath, 'styleguide/pages/documentation/application/factories/' + this.name, this.name.toLowerCase() + '.html')
+  )
 };
