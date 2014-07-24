@@ -58,6 +58,8 @@ App Structure
         |- services/
         |- providers/
     |- scss/
+        |- functions/
+        |- mixins/
         |- elements/
         |- modules/
         |- components/
@@ -68,8 +70,6 @@ App Structure
         |- main.scss
         |- fonts.scss
         |- _variabels.scss
-        |- _functions.scss
-        |- _mixins.scss
         |- _normalize.scss
     |- fonts/
     |- img/
@@ -85,6 +85,8 @@ Available sub-generators:
 
 Non-angular:
 * [nodes-angular:font](https://github.com/dennishn/generator-nodes-angular/blob/master/font/USAGE.md)
+* [nodes-angular:scss](https://github.com/dennishn/generator-nodes-angular/blob/master/scss/USAGE.md)
+* [nodes-angular:example-file](https://github.com/dennishn/generator-nodes-angular/blob/master/example-file/USAGE.md)
 
 Angular:
 * [nodes-angular:controller](https://github.com/dennishn/generator-nodes-angular/blob/master/controller/USAGE.md)
@@ -97,6 +99,7 @@ Angular:
 * [nodes-angular:value](https://github.com/dennishn/generator-nodes-angular/blob/master/value/USAGE.md)
 * [nodes-angular:constant](https://github.com/dennishn/generator-nodes-angular/blob/master/constant/USAGE.md)
 * [nodes-angular:view](https://github.com/dennishn/generator-nodes-angular/blob/master/view/USAGE.md)
+* [nodes-angular:partial-view](https://github.com/dennishn/generator-nodes-angular/blob/master/partial-view/USAGE.md)
 * [nodes-angular:test](https://github.com/dennishn/generator-nodes-angular/blob/master/test/USAGE.md)
 
 -----------------------------------
