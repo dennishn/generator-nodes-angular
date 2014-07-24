@@ -93,6 +93,7 @@ Angular:
 * [nodes-angular:directive](https://github.com/dennishn/generator-nodes-angular/blob/master/directive/USAGE.md)
 * [nodes-angular:filter](https://github.com/dennishn/generator-nodes-angular/blob/master/filter/USAGE.md)
 * [nodes-angular:route](https://github.com/dennishn/generator-nodes-angular/blob/master/route/USAGE.md)
+* [nodes-angular:ui-route](https://github.com/dennishn/generator-nodes-angular/blob/master/ui-route/USAGE.md)
 * [nodes-angular:service](https://github.com/dennishn/generator-nodes-angular/blob/master/service/USAGE.md)
 * [nodes-angular:provider](https://github.com/dennishn/generator-nodes-angular/blob/master/provider/USAGE.md)
 * [nodes-angular:factory](https://github.com/dennishn/generator-nodes-angular/blob/master/factory/USAGE.md)
